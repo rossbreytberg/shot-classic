@@ -1,0 +1,42 @@
+$def with (scores)
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Shot</title>
+		<script type="text/javascript" src="/static/js/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.timers-1.2.js"></script>
+		<link rel="stylesheet" type="test/css" href="/static/css/style.css" />
+		<script type="text/javascript" src="/static/js/index.js"></script>
+	</head>
+	<body>
+		<div id="sound"></div>
+		<div id="main">
+			<div id="panel">
+				<div id="score">0</div>
+				<div id="time">30</div>
+			</div>
+			<div id="game">
+				<form method="post" action="add" class="webform" id="scoresform">
+					<div id="scoreval"></div>
+					<input type="text" name="name" value="Enter your name" />
+					<input type="submit" value="Submit Score" />
+				</form>
+				<div id="start">Start</div>
+				<div id="target"></div>
+				<div id="highscores">
+					<h1>High Scores:</h1>
+					$code:
+						scoreslist = []
+						for entry in scores:
+							scoreslist.append(entry)
+						scoreslist.sort(key=lambda entry: entry['score'], reverse=True)
+					<ol>
+					$for entry in scoreslist:
+						<li>$entry.name: $entry.score</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

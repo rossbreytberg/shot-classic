@@ -1,0 +1,154 @@
+@font-face { font-family: Delicious-Bold; src: url('../fonts/Delicious-Bold.otf'); }
+@font-face { font-family: Delicious-BoldItalic; src: url('../fonts/Delicious-BoldItalic.otf'); }
+@font-face { font-family: Delicious-Heavy; src: url('../fonts/Delicious-Heavy.otf'); }
+@font-face { font-family: Delicious-Italic; src: url('../fonts/Delicious-Italic.otf'); }
+@font-face { font-family: Delicious-Roman; src: url('../fonts/Delicious-Roman.otf'); }
+@font-face { font-family: Delicious-SmallCaps; src: url('../fonts/Delicious-SmallCaps.otf'); }
+@font-face { font-family: Diavlo-Black; src: url('../fonts/Diavlo_BLACK_II_37.otf'); }
+@font-face { font-family: Diavlo-Bold; src: url('../fonts/Diavlo_BOLD_II_37.otf'); }
+@font-face { font-family: Diavlo-Book; src: url('../fonts/Diavlo_BOOK_II_37.otf'); }
+@font-face { font-family: Diavlo-Light; src: url('../fonts/Diavlo_LIGHT_II_37.otf'); }
+@font-face { font-family: Diavlo-Medium; src: url('../fonts/Diavlo_MEDIUM_II_37.otf'); }
+@font-face { font-family: Fontin-Bold; src: url('../fonts/Fontin-Bold.ttf'); }
+@font-face { font-family: Fontin-Italic; src: url('../fonts/Fontin-Italic.ttf'); }
+@font-face { font-family: Fontin-Regular; src: url('../fonts/Fontin-Regular.ttf'); }
+@font-face { font-family: Fontin-SmallCaps; src: url('../fonts/Fontin-SmallCaps.ttf'); }
+@font-face { font-family: Fontin-Sans-Bold; src: url('../fonts/Fontin_Sans_B_45b.otf'); }
+@font-face { font-family: Fontin-Sans-BoldItalic; src: url('../fonts/Fontin_Sans_BI_45b.otf'); }
+@font-face { font-family: Fontin-Sans-Italic; src: url('../fonts/Fontin_Sans_I_45b.otf'); }
+@font-face { font-family: Fontin-Sans-Regular; src: url('../fonts/Fontin_Sans_R_45b.otf'); }
+@font-face { font-family: Fontin-Sans-SmallCaps; src: url('../fonts/Fontin_Sans_SC_45b.otf'); }
+@font-face { font-family: Helvetica; src: url('../fonts/Helvetica.ttf'); }
+
+html {
+	background: url(../images/bgblue.png);
+	background-size: cover;
+	min-height: 100%;
+}
+
+#main {
+	width: 800px;
+	margin: auto;
+	padding: 1em;
+	overflow: auto;
+}
+
+#sound {
+	width: 0px;
+	height: 0px;
+}
+
+#panel {
+	font-family: Fontin-Sans-SmallCaps;
+	font-size: 90px;
+	color: #ffffff;
+	height: 100px;
+}
+
+#score {
+	float: left;
+}
+
+#time {
+	float: right;
+}
+
+#game {
+	background-color: rgba(255,255,255,1);
+	position: relative;
+	box-shadow: 0px 0px 5px black;
+	-webkit-box-shadow: 0px 0px 5px black;
+	-moz-box-shadow: 0px 0px 5px black;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=0px, offY=0px, positive=true);
+	width: 800px;
+	height: 600px;
+}
+
+#target {
+	width: 50px;
+	height: 50px;
+	background-color: rgba(255,0,0,1);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#start {
+	background-color: rgba(150,150,150,1);
+	box-shadow: 0px 0px 5px black;
+	-webkit-box-shadow: 0px 0px 5px black;
+	-moz-box-shadow: 0px 0px 5px black;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=0px, offY=0px, positive=true);
+	position: absolute;
+	padding: 10px;
+	top: 235px;
+	left: 280px;
+	font-family: Fontin-Sans-SmallCaps;
+	font-size: 90px;
+	color: #ffffff;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#start:hover {
+	background-color: rgba(100,100,100,1)
+}
+
+#scoresform {
+	background-color: rgba(150,150,150,1);
+	box-shadow: 0px 0px 5px black;
+	-webkit-box-shadow: 0px 0px 5px black;
+	-moz-box-shadow: 0px 0px 5px black;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=0px, offY=0px, positive=true);
+}
+
+.webform {
+	position: absolute;
+	top: 500px;
+	left: 275px;
+}
+
+h1 {
+	font-family: Fontin-Sans-SmallCaps;
+	font-size: 36px;
+	color: #ffffff;
+}
+
+li {
+	font-family: Fontin-Sans-Regular;
+	font-size: 16px;
+	color: #ffffff;
+}
+
+#highscores {
+	background-color: rgba(150,150,150,1);
+	box-shadow: 0px 0px 5px black;
+	-webkit-box-shadow: 0px 0px 5px black;
+	-moz-box-shadow: 0px 0px 5px black;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=0px, offY=0px, positive=true);
+	position:absolute;
+	padding: 10px;
+	top:50px;
+	left: 250px;
+	height: 400px;
+	width: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}  
+
+#highscores::-webkit-scrollbar {
+width: 6px;
+height: 6px;
+padding: 18px;
+-webkit-border-radius: 1ex;
+}
+
+#highscores::-webkit-scrollbar-thumb {
+background-color: rgba(053, 057, 071, 0.3);
+padding: 8px;
+width: 6px;
+height: 6px;
+-webkit-border-radius: 1ex;
+}
