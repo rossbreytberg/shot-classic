@@ -56,12 +56,9 @@ html {
 #game {
 	background-color: rgba(255,255,255,1);
 	position: relative;
-	box-shadow: 0px 0px 5px black;
-	-webkit-box-shadow: 0px 0px 5px black;
-	-moz-box-shadow: 0px 0px 5px black;
-	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=0px, offY=0px, positive=true);
 	width: 800px;
 	height: 600px;
+
 }
 
 #target {
@@ -71,14 +68,29 @@ html {
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	box-shadow: 1px 1px 1px black;
+	-webkit-box-shadow: 1px 1px 1px black;
+	-moz-box-shadow: 1px 1px 1px black;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=1px, offY=1px, positive=true);
+}
+
+.tempscore {
+	font-family: Fontin-Sans-SmallCaps;
+	font-size: 48px;
+	color: yellow;
+	position: fixed;
+	top: 50px;
+	left: 50px;
+	text-shadow: 1px 1px 1px black;
+
 }
 
 #start {
 	background-color: rgba(150,150,150,1);
-	box-shadow: 0px 0px 5px black;
-	-webkit-box-shadow: 0px 0px 5px black;
-	-moz-box-shadow: 0px 0px 5px black;
-	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=0px, offY=0px, positive=true);
+	box-shadow: 1px 1px 1px black;
+	-webkit-box-shadow: 1px 1px 1px black;
+	-moz-box-shadow: 1px 1px 1px black;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=1px, offY=1px, positive=true);
 	position: absolute;
 	padding: 10px;
 	top: 235px;
@@ -90,6 +102,7 @@ html {
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
+	cursor:default;
 }
 
 #start:hover {
@@ -98,10 +111,10 @@ html {
 
 #scoresform {
 	background-color: rgba(150,150,150,1);
-	box-shadow: 0px 0px 5px black;
-	-webkit-box-shadow: 0px 0px 5px black;
-	-moz-box-shadow: 0px 0px 5px black;
-	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=0px, offY=0px, positive=true);
+	box-shadow: 1px 1px 1px black;
+	-webkit-box-shadow: 1px 1px 1px black;
+	-moz-box-shadow: 1px 1px 1px black;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=1px, offY=1px, positive=true);
 }
 
 .webform {
@@ -124,10 +137,10 @@ li {
 
 #highscores {
 	background-color: rgba(150,150,150,1);
-	box-shadow: 0px 0px 5px black;
-	-webkit-box-shadow: 0px 0px 5px black;
-	-moz-box-shadow: 0px 0px 5px black;
-	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=0px, offY=0px, positive=true);
+	box-shadow: 1px 1px 1px black;
+	-webkit-box-shadow: 1px 1px 1px black;
+	-moz-box-shadow: 1px 1px 1px black;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=1px, offY=1px, positive=true);
 	position:absolute;
 	padding: 10px;
 	top:50px;
