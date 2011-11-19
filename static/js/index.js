@@ -3,7 +3,7 @@ $(document).ready(function(){
   //initialize variables
   var score = 0
   var tempscore = 100
-  var time = 2
+  var time = 30
   var mousex = 0
   var mousey = 0
   var name = null
@@ -106,7 +106,7 @@ $(document).ready(function(){
     //reset variables
     score = 0
     tempscore = 100
-    time = 2
+    time = 30
     //update score and time displays
     $("#score").text(score)
     $("#time").text(time)
