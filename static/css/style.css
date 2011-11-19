@@ -82,7 +82,10 @@ html {
 	top: 50px;
 	left: 50px;
 	text-shadow: 1px 1px 1px black;
-
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 #start {
@@ -102,7 +105,7 @@ html {
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
-	cursor:default;
+	cursor: default;
 }
 
 #start:hover {
@@ -115,9 +118,6 @@ html {
 	-webkit-box-shadow: 1px 1px 1px black;
 	-moz-box-shadow: 1px 1px 1px black;
 	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=1px, offY=1px, positive=true);
-}
-
-.webform {
 	position: absolute;
 	top: 500px;
 	left: 275px;
