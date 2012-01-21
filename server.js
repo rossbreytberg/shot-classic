@@ -1,11 +1,14 @@
 var express = require('express')
+var io = require('socket.io')
 var mongo = require('mongodb')
 
-var server = express.createServer()
+var server = express.createServer(), 
+	io = io.listen(server)
 server.set('view engine', 'ejs')
 server.set('view options', {
 	layout: false
 })
+io.set('log level', 1)
 server.set('views', __dirname + "/views");
 server.use(express.bodyParser())
 server.use("/static", express.static(__dirname + "/static"))
@@ -13,7 +16,7 @@ server.use("/static", express.static(__dirname + "/static"))
 var db = new mongo.Db('shot', new mongo.Server("127.0.0.1", 27017, {auto_reconnect: true}), {})
 db.open(
 	function(err, db) {
-		server.listen(8080)
+		server.listen(80)
 	}
 )
 
@@ -52,13 +55,13 @@ server.get('/highscores',
 	}
 )
 
-server.post('/submitscore', 
-	function(req, res) {
-		db.collection('scores',
-			function(err, collection) {
-				collection.insert({name: req.body.name, score: parseInt(req.body.score)}, {safe:true},
-					function(err) {
-						res.send()
+io.sockets.on('connection',
+	function(socket) {
+		socket.on('submitscore',
+			function(data) {
+				db.collection('scores',
+					function(err, collection) {
+						collection.insert({name: data['name'], score: data['score']})
 					}
 				)
 			}
