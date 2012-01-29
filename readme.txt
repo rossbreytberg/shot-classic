@@ -16,6 +16,8 @@ mongodb
 Instructions:
 1. Download code.
 2. Navigate to directory and install dependencies using npm:
+`
 	npm install express mongodb ejs socket.io
+`
 3. Run code:
 	node server.js

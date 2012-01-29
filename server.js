@@ -27,44 +27,29 @@ server.get('/',
 	}
 )
 
-server.get('/highscores',
-	function(req, res) {
-		db.collection('scores',
-			function(err, collection) {
-				collection.find({}, {limit: 1000, sort:[['score', 'desc'],['_id', 'asc'],['name', 'asc']]},
-					function(err, cursor) {
-						cursor.toArray(
-							function(err, items) {
-								if(items.length > 0) {
-									res.writeHead(200, {'Content-Type': 'text/plain'})
-									for(i=0; i<items.length; i++) {
-										res.write(JSON.stringify(items[i]) + '\n')
-									}
-								}
-								else{
-									res.writeHead(404, {'Content-Type': 'text/plain'})
-									res.write('No highscores :(')
-								}
-								res.end()
-							}
-						)
-					} 
-				)
-			}
-		)
-	}
-)
-
-io.sockets.on('connection',
-	function(socket) {
-		socket.on('submitscore',
-			function(data) {
-				db.collection('scores',
-					function(err, collection) {
-						collection.insert({name: data['name'], score: data['score']})
+server.get('/highscores', function(req, res) {
+	db.collection('scores', function(err, collection) {
+		collection.find({}, {limit: 1000, sort:[['score', 'desc'],['_id', 'asc'],['name', 'asc']]}, function(err, cursor) {
+			cursor.toArray(function(err, items) {
+				if(items.length > 0) {
+					res.writeHead(200, {'Content-Type': 'text/plain'})
+					for(i=0; i<items.length; i++) {
+						res.write(JSON.stringify(items[i]) + '\n')
 					}
-				)
-			}
-		)
-	}
-)
+				} else {
+					res.writeHead(404, {'Content-Type': 'text/plain'})
+					res.write('No highscores :(')
+				}
+				res.end()
+			})
+		} )
+	})
+})
+
+io.sockets.on('connection', function(socket) {
+	socket.on('submitscore', function(data) {
+		db.collection('scores', function(err, collection) {
+			collection.insert({name: data['name'], score: data['score']})
+		})
+	})
+})
