@@ -83,6 +83,7 @@ $(document).ready(function(){
         name = $("#nameinput").attr('value')
         //send name and score and reload high scores
         socket.emit('submitscore', {name: name, score: score})
+        loadHighScores()
         //remove name input field
         $("#nameinput").remove()
         //remove submit button
