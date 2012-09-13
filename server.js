@@ -1,55 +1,35 @@
-var express = require('express')
-var io = require('socket.io')
-var mongo = require('mongodb')
-
-var server = express.createServer(), 
-	io = io.listen(server)
-server.set('view engine', 'ejs')
-server.set('view options', {
-	layout: false
-})
-io.set('log level', 1)
-server.set('views', __dirname + "/views");
-server.use(express.bodyParser())
-server.use("/static", express.static(__dirname + "/static"))
-
-var db = new mongo.Db('shot', new mongo.Server("127.0.0.1", 27017, {auto_reconnect: true}), {})
-db.open(
-	function(err, db) {
-		server.listen(80)
-	}
-)
+var http = require('http'),
+	express = require('express'),
+	app = express(),
+	server = http.createServer(app),
+	io = require('socket.io').listen(server),
+	highscores = {};
 
 
-server.get('/', 
-	function(req, res) {
-		res.render('index')
-	}
-)
+app.set('view engine', 'ejs');
+app.set('view options', {layout: false});
+io.set('log level', 1);
+app.set('views', __dirname + "/views");
+app.use(express.bodyParser());
+app.use("/static", express.static(__dirname + "/static"));
+server.listen(8080);
 
-server.get('/highscores', function(req, res) {
-	db.collection('scores', function(err, collection) {
-		collection.find({}, {limit: 1000, sort:[['score', 'desc'],['_id', 'asc'],['name', 'asc']]}, function(err, cursor) {
-			cursor.toArray(function(err, items) {
-				if(items.length > 0) {
-					res.writeHead(200, {'Content-Type': 'text/plain'})
-					for(i=0; i<items.length; i++) {
-						res.write(JSON.stringify(items[i]) + '\n')
-					}
-				} else {
-					res.writeHead(404, {'Content-Type': 'text/plain'})
-					res.write('No highscores :(')
-				}
-				res.end()
-			})
-		} )
-	})
-})
+
+app.get('/', function(req, res) {
+	res.render('index');
+});
+
+
+app.get('/highscores', function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end(JSON.stringify(highscores));
+});
 
 io.sockets.on('connection', function(socket) {
 	socket.on('submitscore', function(data) {
-		db.collection('scores', function(err, collection) {
-			collection.insert({name: data['name'], score: data['score']})
-		})
-	})
-})
+        if (!(data.score in highscores)) {
+            highscores[data.score] = [];
+        }
+		highscores[data.score].push(data.name);
+	});
+});

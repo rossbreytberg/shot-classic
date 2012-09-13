@@ -6,7 +6,7 @@ $(document).ready(function(){
   var time = 30
   var name = null
   var sound = new Audio("/static/sounds/ding.wav")
-  var socket = io.connect('http://localhost')
+  var socket = io.connect('/')
 
   //update score and time displays
   $("#score").text(score)
@@ -16,20 +16,21 @@ $(document).ready(function(){
   var loadHighScores = function() {
     $("#highscores").remove()
     $("<div/>", {'id':'highscores'}).appendTo("#game").html("<h1>High Scores:</h1>")
+    $("<ol/>", {'id': 'highscorelist'}).appendTo("#highscores")
     $.get("/highscores", function(data) {
-      var scoreobjects = data.split('\n')
-      for(i=0; i<scoreobjects.length-1; i++) {
-        scoreobjects[i] = $.parseJSON(scoreobjects[i])
-      }
-      $("<ol/>", {'id': 'highscorelist'}).appendTo("#highscores")
-      var highlighted = false
-      for(i=0; i<scoreobjects.length-1; i++) {
-        $("<li/>", {'id':i, text:scoreobjects[i]["name"]+": "+scoreobjects[i]["score"]}).appendTo("#highscorelist")
-        if(highlighted==false && scoreobjects[i]["name"]==name && scoreobjects[i]["score"]==score) {
-          $("#"+i).css('color','yellow')
-          highlighted = true
-        }
-      }
+        var highscores = $.parseJSON(data)
+        var highlighted = false
+        for (highscore in highscores) {
+            for (i in highscores[highscore]) {
+                var highscorename = highscores[highscore][i]
+                $("<li/>", {'id':i, text:highscorename+": "+highscore}).prependTo("#highscorelist")
+                if(highlighted==false && highscorename==name && highscore==score) {
+                    $("#"+i).css('color','yellow')
+                    highlighted = true
+                }
+            }
+
+        }  
     })
   }
 

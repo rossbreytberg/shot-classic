@@ -1,24 +1,4 @@
-@font-face { font-family: Delicious-Bold; src: url('../fonts/Delicious-Bold.otf'); }
-@font-face { font-family: Delicious-BoldItalic; src: url('../fonts/Delicious-BoldItalic.otf'); }
-@font-face { font-family: Delicious-Heavy; src: url('../fonts/Delicious-Heavy.otf'); }
-@font-face { font-family: Delicious-Italic; src: url('../fonts/Delicious-Italic.otf'); }
-@font-face { font-family: Delicious-Roman; src: url('../fonts/Delicious-Roman.otf'); }
-@font-face { font-family: Delicious-SmallCaps; src: url('../fonts/Delicious-SmallCaps.otf'); }
-@font-face { font-family: Diavlo-Black; src: url('../fonts/Diavlo_BLACK_II_37.otf'); }
-@font-face { font-family: Diavlo-Bold; src: url('../fonts/Diavlo_BOLD_II_37.otf'); }
-@font-face { font-family: Diavlo-Book; src: url('../fonts/Diavlo_BOOK_II_37.otf'); }
-@font-face { font-family: Diavlo-Light; src: url('../fonts/Diavlo_LIGHT_II_37.otf'); }
-@font-face { font-family: Diavlo-Medium; src: url('../fonts/Diavlo_MEDIUM_II_37.otf'); }
-@font-face { font-family: Fontin-Bold; src: url('../fonts/Fontin-Bold.ttf'); }
-@font-face { font-family: Fontin-Italic; src: url('../fonts/Fontin-Italic.ttf'); }
-@font-face { font-family: Fontin-Regular; src: url('../fonts/Fontin-Regular.ttf'); }
-@font-face { font-family: Fontin-SmallCaps; src: url('../fonts/Fontin-SmallCaps.ttf'); }
-@font-face { font-family: Fontin-Sans-Bold; src: url('../fonts/Fontin_Sans_B_45b.otf'); }
-@font-face { font-family: Fontin-Sans-BoldItalic; src: url('../fonts/Fontin_Sans_BI_45b.otf'); }
-@font-face { font-family: Fontin-Sans-Italic; src: url('../fonts/Fontin_Sans_I_45b.otf'); }
-@font-face { font-family: Fontin-Sans-Regular; src: url('../fonts/Fontin_Sans_R_45b.otf'); }
 @font-face { font-family: Fontin-Sans-SmallCaps; src: url('../fonts/Fontin_Sans_SC_45b.otf'); }
-@font-face { font-family: Helvetica; src: url('../fonts/Helvetica.ttf'); }
 
 html {
 	background: url(../images/bgblue.png);
